@@ -1,0 +1,43 @@
+<div class="container">
+    <form class="example-form mat-elevation-z8">
+
+      <div class="logo">
+        <img src="../../../assets/img/logo.png" alt="">
+        <h1>SistecPedido</h1>
+      </div>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="email" placeholder="Seu Email">
+          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            Email inválido
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email inválido
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput [formControl]="senha" placeholder="Sua senha">
+            <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
+              A senha deve conter no mínimo 4 caracteres
+            </mat-error>
+            <mat-error *ngIf="senha.hasError('required')">
+              A senha deve conter no mínimo 4 caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <div class="recuperar">
+            <a href="#" class="a">Recuperar senha</a>
+          </div>
+
+
+          <div class="botoes">
+            <button class="acessar mat-elevation-z8" [disabled]="!validarCampo()" mat-raised-button color="primary">Entrar</button>
+          <button class="criar mat-elevation-z8" mat-stroked-button color="primary">Cadastre-se</button>
+          </div>
+
+      </form>
+</div>
