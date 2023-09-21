@@ -10,12 +10,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import { UsuarioCreateComponent } from './components/usuario/usuario-create/usuario-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    LoginComponent
+    LoginComponent,
+    UsuarioCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import { LoginComponent } from './components/login/login.component';
     MatButtonModule,
     BrowserAnimationsModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
