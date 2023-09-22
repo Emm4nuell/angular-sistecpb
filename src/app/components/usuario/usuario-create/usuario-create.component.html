@@ -4,7 +4,7 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Nome Completo</mat-label>
-        <input type="nome" [(ngModel)]="usuario.nome" matInput [formControl]="nome" placeholder="Nome completo">
+        <input type="nome" maxlength="50" [(ngModel)]="usuario.nome" matInput [formControl]="nome" placeholder="Nome completo">
         <mat-error *ngIf="nome.hasError('nome') && !nome.hasError('required')">
           Campo obrigatório!
         </mat-error>
@@ -47,9 +47,9 @@
         </mat-form-field>
 
         <section class="section">
-          <mat-checkbox class="margin">Gerente</mat-checkbox>
-          <mat-checkbox class="margin">Loja</mat-checkbox>
-          <mat-checkbox class="margin">Distribuidor</mat-checkbox>
+          <mat-checkbox class="margin" color="primary">Gerente</mat-checkbox>
+          <mat-checkbox class="margin" color="primary">Loja</mat-checkbox>
+          <mat-checkbox class="margin" color="primary">Distribuidor</mat-checkbox>
         </section>
 
         <div class="divsenha">
@@ -85,7 +85,7 @@
 
           <div class="botoes">
             <button class="salvar mat-elevation-z8" [disabled]="!validarCampo()" mat-raised-button color="primary">Salvar</button>
-            <a class="voltar mat-elevation-z8" mat-stroked-button color="warn" href="/..">Voltar</a>
+            <a class="voltar mat-elevation-z8" mat-stroked-button color="warn" routerLink="../">Voltar</a>
           </div>
 
       </form>

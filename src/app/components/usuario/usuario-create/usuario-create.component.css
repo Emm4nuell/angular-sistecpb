@@ -35,10 +35,6 @@ mat-form-field{
     margin-bottom: .3rem;
 }
 
-mat-checkbox{
-    background-color: red;
-}
-
 .salvar{
     width: 68%;
     margin-right: 4%;
