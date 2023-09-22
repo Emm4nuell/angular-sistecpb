@@ -8,11 +8,11 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="email" placeholder="Seu Email">
-          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          <input type="vemail" [(ngModel)]="creds.email" matInput [formControl]="vemail" placeholder="Seu Email">
+          <mat-error *ngIf="vemail.hasError('email') && !vemail.hasError('required')">
             Email inválido
           </mat-error>
-          <mat-error *ngIf="email.hasError('required')">
+          <mat-error *ngIf="vemail.hasError('required')">
             Email inválido
           </mat-error>
         </mat-form-field>
@@ -20,11 +20,11 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Senha</mat-label>
-            <input type="password" matInput [formControl]="senha" placeholder="Sua senha">
-            <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
+            <input type="password" [(ngModel)]="creds.senha" matInput [formControl]="vsenha" placeholder="Sua senha">
+            <mat-error *ngIf="vsenha.hasError('vsenha') && !vsenha.hasError('required')">
               A senha deve conter no mínimo 4 caracteres
             </mat-error>
-            <mat-error *ngIf="senha.hasError('required')">
+            <mat-error *ngIf="vsenha.hasError('required')">
               A senha deve conter no mínimo 4 caracteres
             </mat-error>
           </mat-form-field>
