@@ -38,7 +38,7 @@ export class UsuarioCreateComponent implements OnInit {
   }
 
   validarCampo(): boolean{
-    if(this.nome.valid && this.cpf.valid && this.datanascimento.valid){
+    if(this.nome.valid && this.cpf.valid && this.datanascimento.valid && this.email.valid && this.repitasenha.valid && this.senha.valid){
       return true;
     }else{
       return false;
