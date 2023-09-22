@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { CreateUsuario } from 'src/app/models/usuario-create';
 
 @Component({
   selector: 'app-usuario-create',
@@ -7,6 +8,14 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./usuario-create.component.css']
 })
 export class UsuarioCreateComponent implements OnInit {
+
+  usuario: CreateUsuario = {
+    nome: '',
+    cpf: '',
+    email: '',
+    datanascimento: '',
+    senha: ''
+  }
 
   nome = new FormControl('', [Validators.required]);
   cpf = new FormControl('', [Validators.required])

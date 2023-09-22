@@ -4,7 +4,7 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Nome Completo</mat-label>
-        <input type="nome" matInput [formControl]="nome" placeholder="Nome completo">
+        <input type="nome" [(ngModel)]="usuario.nome" matInput [formControl]="nome" placeholder="Nome completo">
         <mat-error *ngIf="nome.hasError('nome') && !nome.hasError('required')">
           Campo obrigatório!
         </mat-error>
@@ -15,7 +15,7 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>CPF</mat-label>
-        <input type="cpf" matInput [formControl]="cpf" placeholder="CPF">
+        <input type="cpf" [(ngModel)]="usuario.cpf" matInput [formControl]="cpf" placeholder="CPF">
         <mat-error *ngIf="cpf.hasError('cpf') && !cpf.hasError('required')">
           Campo obrigatório!
         </mat-error>
@@ -26,7 +26,7 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
+          <input type="email" [(ngModel)]="usuario.email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
           <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
             Campo obrigatório!
           </mat-error>
@@ -37,7 +37,7 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Data de Nascimento</mat-label>
-          <input type="date" matInput [formControl]="datanascimento">
+          <input type="date" [(ngModel)]="usuario.datanascimento" matInput [formControl]="datanascimento">
           <mat-error *ngIf="datanascimento.hasError('datanascimento') && !datanascimento.hasError('required')">
             Campo obrigatório!
           </mat-error>
@@ -46,10 +46,16 @@
           </mat-error>
         </mat-form-field>
 
+        <section class="section">
+          <mat-checkbox class="margin">Gerente</mat-checkbox>
+          <mat-checkbox class="margin">Loja</mat-checkbox>
+          <mat-checkbox class="margin">Distribuidor</mat-checkbox>
+        </section>
+
         <div class="divsenha">
           <mat-form-field>
             <mat-label>Digite a senha</mat-label>
-            <input matInput [type]="btsenha ? 'password' : 'text'" [formControl] = "senha">  
+            <input matInput [(ngModel)]="usuario.senha" [type]="btsenha ? 'password' : 'text'" [formControl] = "senha">  
             <button mat-icon-button matSuffix (click)="mostrarsenha()" [attr.aria-label]="'password'" [attr.aria-pressed]="btsenha">
               <mat-icon>{{btsenha ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
