@@ -1,12 +1,51 @@
 .container{
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
+    background: linear-gradient(90deg, rgba(2,48,130,1) 3%, rgba(0,142,240,1) 100%);
+
+}
+
+h1{
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    color: rgba(0,142,240,1);
 }
 
 form{
-    padding: 1rem;
-    border: 2px solid red;
+    background-color: white;
     width: 23rem;
     margin: auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+mat-form-field{
+    width: 100%;
+    margin-bottom: .3rem;
+}
+
+.salvar{
+    width: 68%;
+    margin-right: 4%;
+}
+.voltar{
+    width: 28%;
+}
+
+.salvar:hover, .voltar:hover{
+    transform: scale(1.03);
+}
+
+.divsenha{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.divsenha mat-form-field{
+    width: 46%;
 }
