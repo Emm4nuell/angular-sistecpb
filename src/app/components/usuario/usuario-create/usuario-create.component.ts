@@ -1,6 +1,8 @@
+import { UsuarioService } from './../../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { CreateUsuario } from 'src/app/models/usuario-create';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario-create';
 
 @Component({
   selector: 'app-usuario-create',
@@ -9,12 +11,17 @@ import { CreateUsuario } from 'src/app/models/usuario-create';
 })
 export class UsuarioCreateComponent implements OnInit {
 
-  usuario: CreateUsuario = {
+  usuario: Usuario = {
+    id: '',
     nome: '',
     cpf: '',
     email: '',
     datanascimento: '',
-    senha: ''
+    senha: '',
+    perfis: [],
+    loja: {
+      nomeempresa: ''
+    }
   }
 
   nome = new FormControl('', [Validators.required]);
@@ -54,9 +61,21 @@ export class UsuarioCreateComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(private service: UsuarioService) { }
 
   ngOnInit(): void {
+  }
+
+  create(): void{
+    this.service.create(this.usuario).subscribe(resp => {
+      alert("Cadastrado com sucesso!");
+    }, error => {
+      console.warn(error);
+    })
+  }
+
+  createts():void{
+    console.error(this.usuario)
   }
 
 

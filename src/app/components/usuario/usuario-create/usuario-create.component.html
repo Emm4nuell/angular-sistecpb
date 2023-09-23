@@ -46,6 +46,8 @@
           </mat-error>
         </mat-form-field>
 
+        {{usuario.datanascimento}}
+
         <section class="section">
           <mat-checkbox class="margin" color="primary">Gerente</mat-checkbox>
           <mat-checkbox class="margin" color="primary">Loja</mat-checkbox>
@@ -84,8 +86,8 @@
 
 
           <div class="botoes">
-            <button class="salvar mat-elevation-z8" [disabled]="!validarCampo()" mat-raised-button color="primary">Salvar</button>
-            <a class="voltar mat-elevation-z8" mat-stroked-button color="warn" routerLink="../">Voltar</a>
+            <button class="salvar mat-elevation-z8" [disabled]="!validarCampo()" (click)="create()" mat-raised-button color="primary">Salvar</button>
+            <a class="voltar mat-elevation-z8" mat-stroked-button color="warn" href="../">Voltar</a>
           </div>
 
       </form>

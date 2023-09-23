@@ -14,6 +14,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppComponent,
     NavComponent,
     LoginComponent,
-    UsuarioCreateComponent
+    UsuarioCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +34,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatFormFieldModule,
     MatIconModule,
     MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

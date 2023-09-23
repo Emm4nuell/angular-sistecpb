@@ -1,6 +1,8 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Credenciais } from 'src/app/models/credenciais';
+import { Auth } from 'src/app/models/auth';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { Credenciais } from 'src/app/models/credenciais';
 })
 export class LoginComponent implements OnInit {
 
-  creds: Credenciais = {
+  creds: Auth = {
     email: '',
     senha: ''
   }
@@ -21,10 +23,17 @@ export class LoginComponent implements OnInit {
     return this.vemail.valid && this.vsenha.valid;
   }
 
-  constructor() { }
+  constructor(private auth:AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  login(){
+    this.auth.autenticar(this.creds).subscribe(response => {
+      this.auth.successFullLogin(response.body);
+    }, err => {
+      localStorage.removeItem("token")
+    })
+  }
 
 }
