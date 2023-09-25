@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   successFullLogin(token: String): void{
-    localStorage.setItem('token', `Bearer ${token}`);
+    localStorage.setItem('token', `${token}`);
   }
 
   logout(){

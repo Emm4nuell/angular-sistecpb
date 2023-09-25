@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { ToastrModule } from 'ngx-toastr';
       progressBar: true
     })
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
