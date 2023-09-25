@@ -33,6 +33,11 @@ export class LoginComponent implements OnInit {
       this.auth.successFullLogin(response.body);
     }, err => {
       localStorage.removeItem("token")
+      if(err.status == 403 || err.status == 500){
+        alert("Usuário e/ou senha inválidos")
+      }else{
+        alert("Erro interno!")
+      }
     })
   }
 

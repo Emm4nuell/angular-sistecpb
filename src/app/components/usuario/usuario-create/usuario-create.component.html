@@ -1,4 +1,10 @@
-<div class="container">
+<div class="containe">
+
+
+  <div *ngIf="false" class="alert alert-warning" role="alert">
+    A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+  </div>
+
   <form class="example-form mat-elevation-z8">
     <h1>Cadastro de Usuário</h1>
 
@@ -58,7 +64,7 @@
           <mat-form-field>
             <mat-label>Digite a senha</mat-label>
             <input matInput [(ngModel)]="usuario.senha" [type]="btsenha ? 'password' : 'text'" [formControl] = "senha">  
-            <button mat-icon-button matSuffix (click)="mostrarsenha()" [attr.aria-label]="'password'" [attr.aria-pressed]="btsenha">
+            <button mat-icon-button matSuffix type="button" (click)="mostrarsenha()" [attr.aria-label]="'password'" [attr.aria-pressed]="btsenha">
               <mat-icon>{{btsenha ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             <mat-error *ngIf="senha.hasError('senha') && !senha.hasError('required')">
@@ -72,7 +78,7 @@
           <mat-form-field>
             <mat-label>Repita a senha</mat-label>
             <input matInput [type]="btrepitasenha ? 'password' : 'text'" [formControl] = "repitasenha">  
-            <button mat-icon-button matSuffix (click)="mostrarrepitasenha()" [attr.aria-label]="'password'" [attr.aria-pressed]="btrepitasenha">
+            <button mat-icon-button matSuffix type="button" (click)="mostrarrepitasenha()" [attr.aria-label]="'password'" [attr.aria-pressed]="btrepitasenha">
               <mat-icon>{{btrepitasenha ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             <mat-error *ngIf="repitasenha.hasError('repitasenha') && !repitasenha.hasError('required')">
@@ -86,7 +92,7 @@
 
 
           <div class="botoes">
-            <button class="salvar mat-elevation-z8" [disabled]="!validarCampo()" (click)="create()" mat-raised-button color="primary">Salvar</button>
+            <button class="salvar mat-elevation-z8" type="button" [disabled]="!validarCampo()" (click)="create()" mat-raised-button color="primary">Salvar</button>
             <a class="voltar mat-elevation-z8" mat-stroked-button color="warn" href="../">Voltar</a>
           </div>
 

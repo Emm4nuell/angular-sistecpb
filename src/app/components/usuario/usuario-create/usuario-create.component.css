@@ -1,4 +1,4 @@
-.container{
+.containe{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,4 +55,18 @@ mat-form-field{
 
 .divsenha mat-form-field{
     width: 46%;
+}
+
+.alert{
+    border: 2px solid red;
+    height: 3rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: .3rem;
+    top: 0;
+    right: 0;
+    float: left;
+    margin-right: .3rem;
+    margin-top: .3rem;
 }

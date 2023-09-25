@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario-create';
+import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-usuario-create',
@@ -27,7 +29,7 @@ export class UsuarioCreateComponent implements OnInit {
   nome = new FormControl('', [Validators.required]);
   cpf = new FormControl('', [Validators.required])
   email = new FormControl('', [Validators.required, Validators.email]);
-  datanascimento = new FormControl('', [Validators.required]);
+  datanascimento = new FormControl('', [Validators.required]); 
   senha = new FormControl('', [Validators.required])
   repitasenha = new FormControl('', [Validators.required])
   btsenha = true;
@@ -61,23 +63,24 @@ export class UsuarioCreateComponent implements OnInit {
     }
   }
 
-  constructor(private service: UsuarioService) { }
+  constructor(
+    private service: UsuarioService, 
+    private router: Router,
+    private toast: ToastrService
+    ) { }
 
   ngOnInit(): void {
   }
 
   create(): void{
     this.service.create(this.usuario).subscribe(resp => {
-      alert("Cadastrado com sucesso!");
+      if(resp == null){
+        this.toast.success("Usuário cadastrado com sucesso");
+        this.router.navigate(['/login'])
+      }
+      console.warn("Response: " + resp);
     }, error => {
-      console.warn(error);
+      this.toast.error(error.error.message)
     })
   }
-
-  createts():void{
-    console.error(this.usuario)
-  }
-
-
-
 }
