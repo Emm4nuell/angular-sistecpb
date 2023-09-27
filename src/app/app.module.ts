@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     AppComponent,
     NavComponent,
     LoginComponent,
-    UsuarioCreateComponent
+    UsuarioCreateComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Auth } from 'src/app/models/auth';
 import { Route, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     return this.vemail.valid && this.vsenha.valid;
   }
 
-  constructor(private auth:AuthService, private router: Router) { }
+  constructor(private auth:AuthService, private router: Router, private toast: ToastrService ) { }
 
   ngOnInit(): void {
   }
@@ -31,12 +32,13 @@ export class LoginComponent implements OnInit {
   login(){
     this.auth.autenticar(this.creds).subscribe(response => {
       this.auth.successFullLogin(response.body);
+      this.router.navigate(['/home'])
     }, err => {
       localStorage.removeItem("token")
       if(err.status == 403 || err.status == 500){
-        alert("Usuário e/ou senha inválidos")
+        this.toast.info("Usuário e/ou senha inválidos");
       }else{
-        alert("Erro interno!")
+        this.toast.error("Erro interno")
       }
     })
   }

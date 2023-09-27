@@ -1,0 +1,14 @@
+.containe{
+    width: 99%;
+    margin: auto;
+    border: 2px solid orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+}
+
+p{
+    border: 2px solid green;
+    margin-top: .6rem;
+}
